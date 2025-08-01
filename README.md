@@ -15,11 +15,11 @@ BALBOT is a Raspberry Pi 5–powered robotic system that uses real-time computer
 - 3 x [FS5115M-FB](https://www.pololu.com/product/3443) (or similar feedback-enabled servos)
 - External 6V power supply (≥3 Amp recommended)
 
-## Installation & Setup
+## Installation and Setup
 1. Download [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 2. Flash the `Raspberry Pi OS 64-bit (Debian Bookworm)` to your SD card
 3. Insert the SD card and boot the Pi (monitor, keyboard & mouse recommended)
-4. Follow [Configuration on first boot](#configureation-on-first-boot) steps
+4. Follow [Configuration on first boot](#configuration-on-first-boot) steps
 5. Open Terminal and perform system updates
 ```
 sudo apt update && sudo apt upgrade -y
