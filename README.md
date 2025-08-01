@@ -41,6 +41,8 @@ ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
 ```
 
 ### Configuration on first boot
+This section assumes connection to a monitor with a mouse and keyboard connected to the Raspberry Pi 5
+
 1. Dismiss the welcome screen
 2. Configure country, language, time zone and keyboard layout
 3. Configure User - (Default: `username: ballbot`, `password: Balance123`)
@@ -50,6 +52,8 @@ ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
 7. Continue [setup](#installation-and-setup)
 
 ### Connect the Pi Camera
+Depending on your camera you may need a ribbon adapter (The Pi 5 features a slimline connection port compared to older cameras and Pis)
+
 1. **Terminal** -> Shut down the Pi
 ```
 sudo shutdown now
