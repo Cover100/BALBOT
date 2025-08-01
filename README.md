@@ -33,7 +33,12 @@ sudo apt install python3-numpy python3-pigpio python3-spidev python3-opencv v4l2
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 ```
-8. 
+8. [Connect the Pi Camera](#connect-the-pi-camera)
+9. Stream the Pi Camera to a Virtual Webcam
+```
+rpicam-vid --width 640 --height 480 --framerate 30 --codec yuv420 --inline --flush --timeout 0 --output - | \
+ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
+```
 
 ### Configuration on first boot
 1. Dismiss the welcome screen
@@ -45,7 +50,7 @@ sudo systemctl start pigpiod
 7. Finish - Restart your Pi[continue setup](#installation-and-setup)
 8. Continue [Installation & Setup](#installation-and-setup)
 
-### Safe steps to connect the camera
+### Connect the Pi Camera
 1. Shut down the Pi
 ```
 sudo shutdown now
