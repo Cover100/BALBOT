@@ -24,17 +24,29 @@ BALBOT is a Raspberry Pi 5–powered robotic system that uses real-time computer
 ```
 sudo apt update && sudo apt upgrade -y
 ```
-6. **Terminal** -> Install required project libraries
+6. **Terminal** -> Enable key interfaces
+```
+sudo raspi-config
+```
+   Interface Options -> Enable I2C
+   
+        **OPTIONAL** -> Enable VNC: Allows the ability to monitor or control your Pi headlessly
+                     -> Enable SPI: If you intend to use an SPI-based device
+
+```
+sudo reboot
+```
+7. **Terminal** -> Install required project libraries
 ```
 sudo apt install python3-numpy python3-pigpio python3-spidev python3-opencv v4l2loopback-dkms
 ```
-7. **Terminal** -> Enable and start the `pigpiod` daemon
+8. **Terminal** -> Enable and start the `pigpiod` daemon
 ```
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 ```
-8. [Connect the Pi Camera](#connect-the-pi-camera)
-9. **Terminal** -> Stream the Pi Camera to a Virtual Webcam
+9. [Connect the Pi Camera](#connect-the-pi-camera)
+10. **Terminal** -> Stream the Pi Camera to a Virtual Webcam
 ```
 rpicam-vid --width 640 --height 480 --framerate 30 --codec yuv420 --inline --flush --timeout 0 --output - | \
 ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
