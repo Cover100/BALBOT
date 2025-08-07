@@ -14,6 +14,7 @@ BALBOT is a Raspberry Pi 5–powered robotic system that uses real-time computer
 - MicroSD card (16 GB or larger)
 - 3 x [FS5115M-FB](https://www.pololu.com/product/3443) (or similar feedback-enabled servos)
 - External 6V power supply (≥3 Amp recommended)
+- Adafruit 16-Channel 12-bit PWM/Servo Driver - I2C interface [PCA9685](https://core-electronics.com.au/adafruit-16-channel-12-bit-pwm-servo-driver-i2c-interface-pca9685.html)
 
 ## Installation and Setup
 1. Download [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
@@ -46,10 +47,14 @@ sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 ```
 9. [Connect the Pi Camera](#connect-the-pi-camera)
-10. **Terminal** -> Stream the Pi Camera to a Virtual Webcam
+10. **Terminal** -> Check the Pi Camera stream to a Virtual Webcam
 ```
 rpicam-vid --width 640 --height 480 --framerate 30 --codec yuv420 --inline --flush --timeout 0 --output - | \
 ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
+```
+11. **Terminal** Install the adafruit CircuitPython PCA9685 Library
+```
+sudo pip3 install adafruit-circuitpython-pca9685
 ```
 
 ### Configuration on first boot
