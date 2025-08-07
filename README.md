@@ -52,12 +52,13 @@ sudo systemctl start pigpiod
 rpicam-vid --width 640 --height 480 --framerate 30 --codec yuv420 --inline --flush --timeout 0 --output - | \
 ffmpeg -f rawvideo -pix_fmt yuv420p -s 640x480 -i - -f v4l2 /dev/video10
 ```
-11. **Terminal** Install the adafruit CircuitPython PCA9685 Library in a virtual environment
+11. **Terminal** -> Install the adafruit CircuitPython PCA9685 Library in a virtual environment
 ```
 sudo apt install -y python3-venv
 python3 -m venv ~/pca9685-env
 source ~/pca9685-env/bin/activate
-sudo pip3 install adafruit-circuitpython-pca9685
+pip install adafruit-circuitpython-pca9685 adafruit-circuitpython-servokit
+
 echo 'source ~/pca9685-env/bin/activate' >> ~/.bashrc
 source ~/.bashrc
 ```
