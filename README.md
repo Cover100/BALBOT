@@ -62,6 +62,9 @@ pip install adafruit-circuitpython-pca9685 adafruit-circuitpython-servokit
 
 echo 'source ~/pca9685-env/bin/activate' >> ~/.bashrc
 source ~/.bashrc
+
+pip install adafruit-circuitpython-ads1x8x
+
 ```
 Note: if you ever want to stop auto activating the VI `nano ~/.bashrc`
 
